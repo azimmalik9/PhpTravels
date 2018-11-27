@@ -4,7 +4,9 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 
+import com.qa.azim.DemoSite.LandingPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -46,8 +48,8 @@ public class TravelSearchTest {
 	 */
 	@Test
 	public void nextDayHotel() {
+		HomePage homePage = PageFactory.initElements(driver, HomePage.class);
 		
-		HomePage homePage = new HomePage(driver);
 		//homePage.locationLookup(action);
 		test.log(LogStatus.INFO, "Select Checkin Date");
 		homePage.checkIn();
@@ -59,6 +61,7 @@ public class TravelSearchTest {
 		homePage.selectNumPeople();
 		test.log(LogStatus.INFO, "Number of travellers selected");
 		
+		//SearchPage searchPage = PageFactory.initElements(driver, SearchPage.class);
 		SearchPage searchPage = homePage.submit();
 		test.log(LogStatus.INFO, "Search query submitted");
 		assertEquals(searchPage.getTitle(), "Search Results");
