@@ -70,7 +70,7 @@ public class HomePage extends PageObject{
 	 * @param adults the number of adults going on trip
 	 * @param children the number of children going on trip
 	 */
-	public void selectNumPeople(int adults, int children) {
+	public void selectNumPeople() {
 		WebElement traveller = driver.findElement(By.id("travellersInput"));
 		traveller.click();
 		try {
